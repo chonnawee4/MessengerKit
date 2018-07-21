@@ -85,6 +85,39 @@ extension MSGMessengerViewController: UICollectionViewDataSource, UICollectionVi
             cell.isLastInSection = isLast
             
             return cell
+          
+        case .location:
+          let identifier = message.user.isSender ? "outgoingLocation" : "incomingLocation"
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MSGMessageCell
+          
+          cell.delegate = self
+          cell.message = message
+          cell.style = style
+          cell.isLastInSection = isLast
+          
+          return cell
+          
+        case .contact:
+          let identifier = message.user.isSender ? "outgoingContact" : "incomingContact"
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MSGMessageCell
+          
+          cell.delegate = self
+          cell.message = message
+          cell.style = style
+          cell.isLastInSection = isLast
+          
+          return cell
+        
+        case .file:
+          let identifier = message.user.isSender ? "outgoingFile" : "incomingFile"
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MSGMessageCell
+          
+          cell.delegate = self
+          cell.message = message
+          cell.style = style
+          cell.isLastInSection = isLast
+          
+          return cell
             
         case .custom:
             let identifier = message.user.isSender ? "outgoingCustom" : "incomingCustom"

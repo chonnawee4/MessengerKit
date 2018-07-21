@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 /// The body of an `MSGMessage`
 ///
@@ -21,6 +22,8 @@ public enum MSGMessageBody {
     case emoji(String)
     case image(UIImage)
     case video(UIImage, String)
+    case location(MKPlacemark)
+    case contact(Any)
+    case file(URL)
     case custom(Any)
-    
 }
